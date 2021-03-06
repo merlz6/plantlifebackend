@@ -8,11 +8,24 @@ router.get('/', (req,res)=> {
   (async () => {
     const response = await fetch(`https://trefle.io/api/v1/plants?token=${process.env.API_KEY}`);
     const json = await response.json();
+    console.log(json.length)
       res.send(json);
   })()
 
 
 })
+
+router.get('/:pageNumber', (req,res)=> {
+  (async () => {
+    const response = await fetch(`https://trefle.io/api/v1/plants?page=${req.params.pageNumber}&&token=${process.env.API_KEY}`);
+    const json = await response.json();
+    console.log(json)
+      res.send(json);
+  })()
+
+
+})
+
 
 router.get('/kingdoms', (req,res)=> {
   (async () => {

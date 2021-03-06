@@ -17,7 +17,7 @@ const cors = require('cors')
 
 const corsOptions = {
 
-  origin: "process.env.cor",
+  origin: process.env.cor,
   optionsSuccessStatus:200
 
 }

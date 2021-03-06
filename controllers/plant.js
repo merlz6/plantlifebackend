@@ -14,6 +14,18 @@ router.get('/', (req,res)=> {
 
 })
 
+router.get('/kingdoms', (req,res)=> {
+  (async () => {
+    const response = await fetch(`https://trefle.io/api/v1/kingdoms?token=${process.env.API_KEY}`);
+    const json = await response.json();
+      res.send(json);
+  })()
+
+
+})
+
+
+
 //search for one plant by
 router.get('/species/:search', (req,res) => {
   (async () => {

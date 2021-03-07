@@ -14,7 +14,15 @@ router.get('/', (req,res)=> {
 
 
 })
-
+// router.get('/kingdoms', (req,res)=> {
+//   (async () => {
+//     const response = await fetch(`https://trefle.io/api/v1/kingdoms?token=${process.env.API_KEY}`);
+//     const json = await response.json();
+//       res.send(json);
+//   })()
+//
+//
+// })
 router.get('/:pageNumber', (req,res)=> {
   (async () => {
     const response = await fetch(`https://trefle.io/api/v1/plants?page=${req.params.pageNumber}&&token=${process.env.API_KEY}`);
@@ -27,15 +35,7 @@ router.get('/:pageNumber', (req,res)=> {
 })
 
 
-router.get('/kingdoms', (req,res)=> {
-  (async () => {
-    const response = await fetch(`https://trefle.io/api/v1/kingdoms?token=${process.env.API_KEY}`);
-    const json = await response.json();
-      res.send(json);
-  })()
 
-
-})
 
 
 
@@ -53,6 +53,7 @@ router.get('/plant/:search', (req,res) => {
   (async () => {
     const response = await fetch(`https://trefle.io/api/v1/species/search?q=${req.params.search}&&token=${process.env.API_KEY}`);
     const json = await response.json();
+    console.log(json)
       res.send(json);
   })()
 })
